@@ -10,6 +10,8 @@ import Foundation
 public class HTTPBody {
     var body: [String: String] = [:]
     
+    public init() { }
+    
     public func add(key: String, value: String) -> HTTPBody {
         body[key] = value
         return self

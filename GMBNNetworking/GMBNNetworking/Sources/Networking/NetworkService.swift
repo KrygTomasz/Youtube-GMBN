@@ -9,10 +9,12 @@ import Moya
 import RxMoya
 import RxSwift
 
-final class NetworkService<Endpoint: TargetType> {
+final public class NetworkService<Endpoint: TargetType> {
     let provider: MoyaProvider<Endpoint> = MoyaProvider<Endpoint>(plugins: [NetworkLoggerPlugin(configuration: NetworkLoggerPlugin.Configuration(logOptions: .verbose))])
     
-    func call<Response>(endpoint: Endpoint) -> Single<Response> where Response: Decodable {
+    public init() { }
+    
+    public func call<Response>(endpoint: Endpoint) -> Single<Response> where Response: Decodable {
         return provider.rx.request(endpoint)
             .flatMap { response in
                 if HTTPResponseTypeMapper.map(statusCode: response.statusCode) == .success {

@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import GMBNNetworking
 
 final class MoviesListViewController: UIViewController {
     

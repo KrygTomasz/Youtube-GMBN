@@ -1,5 +1,5 @@
 //
-//  CommonHeader.swift
+//  CommonQuery.swift
 //  GMBNNetworking
 //
 //  Created by Tomasz Kryg on 21/06/2021.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum CommonHeader {
+public enum CommonQuery {
     case apiKey
     
     var key: String {

@@ -10,16 +10,10 @@ import Foundation
 public class HTTPHeaders {
     var headers: [String: String] = [:]
     
-    init() {
-        self.add(common: .apiKey)
-    }
+    public init() { }
     
     public func add(key: String, value: String) -> HTTPHeaders {
         headers[key] = value
         return self
-    }
-    
-    @discardableResult public func add(common: CommonHeader) -> HTTPHeaders {
-        return add(key: common.key, value: common.value)
     }
 }
