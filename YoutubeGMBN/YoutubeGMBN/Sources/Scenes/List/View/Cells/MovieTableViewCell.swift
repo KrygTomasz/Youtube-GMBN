@@ -82,15 +82,15 @@ final class MovieTableViewCell: UITableViewCell {
     
     private func setupConstraints() {
         containerView.heightAnchor.constraint(equalToConstant: Constants.cellHeight).isActive = true
-        containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .smallMargin).isActive = true
+        containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumMargin).isActive = true
         containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: .smallMargin).isActive = true
-        containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.smallMargin).isActive = true
+        containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumMargin).isActive = true
         containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -.smallMargin).isActive = true
         
-        stackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
-        stackView.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: .smallMargin).isActive = true
+        stackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: .smallMargin).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -.smallMargin).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -.smallMargin).isActive = true
     }
     
     private func setupShadow() {
@@ -98,11 +98,16 @@ final class MovieTableViewCell: UITableViewCell {
         containerView.layer.shadowRadius = Constants.shadowRadius
         containerView.layer.shadowOpacity = Constants.shadowOpacity
         containerView.layer.shadowOffset = Constants.shadowOffset
+        
+        movieImageView.layer.shadowColor = UIColor.black.cgColor
+        movieImageView.layer.shadowRadius = Constants.shadowRadius
+        movieImageView.layer.shadowOpacity = Constants.shadowOpacity
+        movieImageView.layer.shadowOffset = Constants.shadowOffset
     }
     
     public func set(viewData: MovieViewData) {
-        movieImageView.isHidden = viewData.image == nil
-        movieImageView.image = viewData.image
+        movieImageView.isHidden = viewData.imageUrl.isEmpty
+        movieImageView.setImage(url: viewData.imageUrl)
         titleLabel.text = viewData.title
     }
 }

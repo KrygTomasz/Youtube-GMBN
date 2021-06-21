@@ -9,5 +9,5 @@ import UIKit
 
 struct MovieViewData {
     let title: String
-    let image: UIImage?
+    let imageUrl: String
 }

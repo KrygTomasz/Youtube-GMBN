@@ -9,4 +9,5 @@ import UIKit
 
 extension CGFloat {
     static let smallMargin: CGFloat = 8.0
+    static let mediumMargin: CGFloat = 12.0
 }

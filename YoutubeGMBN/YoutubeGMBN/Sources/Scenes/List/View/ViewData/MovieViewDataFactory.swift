@@ -9,6 +9,6 @@ import UIKit
 
 struct MovieViewDataFactory {
     static func create(_ movie: Movie) -> MovieViewData {
-        return .init(title: movie.snippet.title, image: nil)
+        return .init(title: movie.snippet.title, imageUrl: movie.snippet.thumbnails.default.url ?? "")
     }
 }
