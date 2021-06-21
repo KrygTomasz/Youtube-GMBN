@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class MovieDetailsViewController: UIViewController {
     
@@ -21,6 +23,7 @@ final class MovieDetailsViewController: UIViewController {
         return view
     }()
     
+    private let disposeBag: DisposeBag = DisposeBag()
     let viewModel: MovieDetailsViewModel
     
     init(viewModel: MovieDetailsViewModel) {
@@ -54,9 +57,14 @@ final class MovieDetailsViewController: UIViewController {
     }
     
     private func setupViewData() {
-        movieDetailsView.titleLabel.text = viewModel.output.viewData.title
-        movieDetailsView.descriptionLabel.text = viewModel.output.viewData.description
-        movieDetailsView.dateLabel.text = viewModel.output.viewData.date
-        movieDetailsView.movieImageView.setImage(url: viewModel.output.viewData.imageName)
+        viewModel.output.viewData
+            .drive(onNext: { [weak self] viewData in
+                self?.movieDetailsView.titleLabel.text = viewData?.title
+                self?.movieDetailsView.descriptionLabel.text = viewData?.description
+                self?.movieDetailsView.dateLabel.text = viewData?.date
+                self?.movieDetailsView.durationLabel.text = viewData?.duration
+                self?.movieDetailsView.movieImageView.setImage(url: viewData?.imageName ?? "")
+            })
+            .disposed(by: disposeBag)
     }
 }

@@ -17,18 +17,19 @@ struct MovieDetailViewDataFactory {
         return formatter
     }
     
-    static func create(movie: Movie) -> MovieDetailViewData {
-        let date = movie.snippet.publishedAt
+    static func create(movieDetails: MovieDetailsContainer?) -> MovieDetailViewData? {
+        guard let movieDetails = movieDetails else { return nil }
+        let date = movieDetails.date
         let dateString: String?
         if let date = date {
             dateString = dateFormatter.string(from: date)
         } else {
             dateString = nil
         }
-        return MovieDetailViewData(title: movie.snippet.title,
-                                             description: movie.snippet.description,
-                                             imageName: movie.snippet.thumbnails.high.url ?? "",
-                                             duration: "",
-                                             date: dateString)
+        return MovieDetailViewData(title: movieDetails.title,
+                                   description: movieDetails.description,
+                                   imageName: movieDetails.imageThumbnail.url ?? "",
+                                   duration: movieDetails.duration,
+                                   date: dateString)
     }
 }

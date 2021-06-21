@@ -27,16 +27,15 @@ final class MoviesListViewModel {
         var selectedMovie: Observable<Movie> { return selectedMovieRelay.asObservable() }
     }
     
-    private let useCase: MoviesListUseCase
+    private let useCase: MoviesListUseCaseProtocol
     private let disposeBag: DisposeBag = DisposeBag()
     private let eventsRelay: PublishRelay<Event> = .init()
     var events: Driver<Event> { return eventsRelay.asDriver(onErrorJustReturn: .hideLoading) }
     let input = Input()
     let output = Output()
     
-    init() {
-        let service = MoviesNetworkService()
-        useCase = MoviesListUseCase(moviesService: service)
+    init(useCase: MoviesListUseCaseProtocol) {
+        self.useCase = useCase
         setupBinding()
         refresh()
     }

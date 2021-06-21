@@ -25,6 +25,7 @@ struct MovieSnippetResponse: Decodable {
     let title: String?
     let description: String?
     let thumbnails: MovieThumbnailContainerResponse?
+    let localized: MovieLocalizedResponse?
 }
 
 struct MovieThumbnailContainerResponse: Decodable {
@@ -34,4 +35,9 @@ struct MovieThumbnailContainerResponse: Decodable {
 
 struct MovieThumbnailResponse: Decodable {
     let url: String?
+}
+
+struct MovieLocalizedResponse: Decodable {
+    let title: String?
+    let description: String?
 }

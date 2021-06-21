@@ -82,15 +82,16 @@ public class MovieDetailsView: UIView {
         
         durationLabel.topAnchor.constraint(equalTo: movieImageView.bottomAnchor, constant: .smallMargin).isActive = true
         durationLabel.leadingAnchor.constraint(equalTo: movieImageView.leadingAnchor).isActive = true
-        durationLabel.trailingAnchor.constraint(equalTo: dateLabel.leadingAnchor).isActive = true
-        durationLabel.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
-        durationLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        durationLabel.trailingAnchor.constraint(equalTo: movieImageView.trailingAnchor).isActive = true
+//        durationLabel.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+//        durationLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
 
-        dateLabel.topAnchor.constraint(equalTo: movieImageView.bottomAnchor, constant: .smallMargin).isActive = true
+        dateLabel.topAnchor.constraint(equalTo: movieImageView.bottomAnchor).isActive = true
+        dateLabel.leadingAnchor.constraint(equalTo: movieImageView.leadingAnchor).isActive = true
         dateLabel.trailingAnchor.constraint(equalTo: movieImageView.trailingAnchor).isActive = true
-        dateLabel.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+//        dateLabel.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
         
-        titleLabel.topAnchor.constraint(equalTo: durationLabel.bottomAnchor, constant: .hugeMargin).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: .hugeMargin).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: movieImageView.leadingAnchor).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: movieImageView.trailingAnchor).isActive = true
         

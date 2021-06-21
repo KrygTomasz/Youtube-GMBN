@@ -9,7 +9,9 @@ import Foundation
 
 struct MoviesListViewControllerFactory {
     static func create() -> MoviesListViewController {
-        let viewModel = MoviesListViewModel()
+        let service = MoviesNetworkService()
+        let useCase = MoviesListUseCase(moviesService: service)
+        let viewModel = MoviesListViewModel(useCase: useCase)
         return MoviesListViewController(viewModel: viewModel)
     }
 }
