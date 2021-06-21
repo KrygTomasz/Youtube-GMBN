@@ -24,6 +24,8 @@
 		23A3ECB52680E8B900A307E4 /* HTTPBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A3ECB42680E8B900A307E4 /* HTTPBody.swift */; };
 		23A3ECB72680E9F600A307E4 /* HTTPHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A3ECB62680E9F600A307E4 /* HTTPHeaders.swift */; };
 		23A3ECB92680EAA800A307E4 /* NetworkUrlProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A3ECB82680EAA800A307E4 /* NetworkUrlProvider.swift */; };
+		23A3ECBC2680EB8100A307E4 /* YoutubeAPIKeyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A3ECBB2680EB8100A307E4 /* YoutubeAPIKeyProvider.swift */; };
+		23A3ECBE2680EC4400A307E4 /* CommonHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A3ECBD2680EC4400A307E4 /* CommonHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		23A3ECB42680E8B900A307E4 /* HTTPBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPBody.swift; sourceTree = "<group>"; };
 		23A3ECB62680E9F600A307E4 /* HTTPHeaders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeaders.swift; sourceTree = "<group>"; };
 		23A3ECB82680EAA800A307E4 /* NetworkUrlProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUrlProvider.swift; sourceTree = "<group>"; };
+		23A3ECBB2680EB8100A307E4 /* YoutubeAPIKeyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeAPIKeyProvider.swift; sourceTree = "<group>"; };
+		23A3ECBD2680EC4400A307E4 /* CommonHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,9 +149,9 @@
 		23A3ECAD2680E78100A307E4 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				23A3ECBA2680EB7900A307E4 /* Providers */,
 				23A3EC8A2680E34000A307E4 /* NetworkService.swift */,
 				23A3ECA62680E69E00A307E4 /* NetworkError.swift */,
-				23A3ECB82680EAA800A307E4 /* NetworkUrlProvider.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -159,8 +163,18 @@
 				23A3ECB22680E8AC00A307E4 /* HTTPQuery.swift */,
 				23A3ECB42680E8B900A307E4 /* HTTPBody.swift */,
 				23A3ECB62680E9F600A307E4 /* HTTPHeaders.swift */,
+				23A3ECBD2680EC4400A307E4 /* CommonHeader.swift */,
 			);
 			path = HTTP;
+			sourceTree = "<group>";
+		};
+		23A3ECBA2680EB7900A307E4 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				23A3ECB82680EAA800A307E4 /* NetworkUrlProvider.swift */,
+				23A3ECBB2680EB8100A307E4 /* YoutubeAPIKeyProvider.swift */,
+			);
+			path = Providers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,6 +304,8 @@
 				23A3ECB32680E8AC00A307E4 /* HTTPQuery.swift in Sources */,
 				23A3EC8B2680E34000A307E4 /* NetworkService.swift in Sources */,
 				23A3ECA72680E69E00A307E4 /* NetworkError.swift in Sources */,
+				23A3ECBC2680EB8100A307E4 /* YoutubeAPIKeyProvider.swift in Sources */,
+				23A3ECBE2680EC4400A307E4 /* CommonHeader.swift in Sources */,
 				23A3ECB02680E79A00A307E4 /* HTTPEndpoint.swift in Sources */,
 				23A3ECAC2680E74500A307E4 /* HTTPResponseType.swift in Sources */,
 				23A3ECA92680E72800A307E4 /* HTTPResponseTypeMapper.swift in Sources */,
