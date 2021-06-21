@@ -144,12 +144,8 @@
 		23A3EBFC2680E0CD00A307E4 /* YoutubeGMBN */ = {
 			isa = PBXGroup;
 			children = (
-				23A3EBFD2680E0CD00A307E4 /* AppDelegate.swift */,
-				23A3EBFF2680E0CD00A307E4 /* SceneDelegate.swift */,
-				23A3EC012680E0CD00A307E4 /* ViewController.swift */,
-				23A3EC062680E0D100A307E4 /* Assets.xcassets */,
-				23A3EC082680E0D100A307E4 /* LaunchScreen.storyboard */,
-				23A3EC0B2680E0D100A307E4 /* Info.plist */,
+				23A3ECBF2680ECEF00A307E4 /* Sources */,
+				23A3ECC12680ECF600A307E4 /* Resources */,
 			);
 			path = YoutubeGMBN;
 			sourceTree = "<group>";
@@ -186,6 +182,50 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		23A3ECBF2680ECEF00A307E4 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				23A3ECC32680ED0300A307E4 /* Scenes */,
+				23A3ECC22680ECFD00A307E4 /* Core */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		23A3ECC12680ECF600A307E4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				23A3EC062680E0D100A307E4 /* Assets.xcassets */,
+				23A3EC082680E0D100A307E4 /* LaunchScreen.storyboard */,
+				23A3EC0B2680E0D100A307E4 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		23A3ECC22680ECFD00A307E4 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				23A3EBFD2680E0CD00A307E4 /* AppDelegate.swift */,
+				23A3EBFF2680E0CD00A307E4 /* SceneDelegate.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		23A3ECC32680ED0300A307E4 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				23A3ECC42680ED0C00A307E4 /* List */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		23A3ECC42680ED0C00A307E4 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				23A3EC012680E0CD00A307E4 /* ViewController.swift */,
+			);
+			path = List;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -529,7 +569,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3FMVQ97S47;
-				INFOPLIST_FILE = YoutubeGMBN/Info.plist;
+				INFOPLIST_FILE = YoutubeGMBN/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -549,7 +589,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3FMVQ97S47;
-				INFOPLIST_FILE = YoutubeGMBN/Info.plist;
+				INFOPLIST_FILE = YoutubeGMBN/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
