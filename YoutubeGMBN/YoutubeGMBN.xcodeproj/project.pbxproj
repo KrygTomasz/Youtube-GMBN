@@ -35,6 +35,7 @@
 		23A3ECEB2681004500A307E4 /* CGFloat+Margin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A3ECEA2681004500A307E4 /* CGFloat+Margin.swift */; };
 		23A3ECEF2681006A00A307E4 /* TableCellProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A3ECEE2681006A00A307E4 /* TableCellProvider.swift */; };
 		23A3ECF12681008500A307E4 /* UITableView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A3ECF02681008500A307E4 /* UITableView+Register.swift */; };
+		23A3ECF92681088900A307E4 /* UIColor+OnDark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A3ECF82681088900A307E4 /* UIColor+OnDark.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,7 @@
 		23A3ECEA2681004500A307E4 /* CGFloat+Margin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Margin.swift"; sourceTree = "<group>"; };
 		23A3ECEE2681006A00A307E4 /* TableCellProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellProvider.swift; sourceTree = "<group>"; };
 		23A3ECF02681008500A307E4 /* UITableView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Register.swift"; sourceTree = "<group>"; };
+		23A3ECF82681088900A307E4 /* UIColor+OnDark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+OnDark.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -352,6 +354,7 @@
 				23A3ECE82681003400A307E4 /* UIColor+Theme.swift */,
 				23A3ECEA2681004500A307E4 /* CGFloat+Margin.swift */,
 				23A3ECF02681008500A307E4 /* UITableView+Register.swift */,
+				23A3ECF82681088900A307E4 /* UIColor+OnDark.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -550,6 +553,7 @@
 				23A3ECD42680F30700A307E4 /* YoutubeChannel.swift in Sources */,
 				23A3ECD82680F34800A307E4 /* MovieResponse.swift in Sources */,
 				23A3ECEF2681006A00A307E4 /* TableCellProvider.swift in Sources */,
+				23A3ECF92681088900A307E4 /* UIColor+OnDark.swift in Sources */,
 				23A3ECF12681008500A307E4 /* UITableView+Register.swift in Sources */,
 				23A3ECE42680FCDD00A307E4 /* MovieViewDataFactory.swift in Sources */,
 				23A3EC002680E0CD00A307E4 /* SceneDelegate.swift in Sources */,

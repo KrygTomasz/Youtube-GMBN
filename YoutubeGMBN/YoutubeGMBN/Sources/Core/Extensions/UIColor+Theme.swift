@@ -9,4 +9,6 @@ import UIKit
 
 extension UIColor {
     static let primary: UIColor = .init(red: 206/255, green: 0, blue: 29/255, alpha: 1)
+    static let secondary: UIColor = UIColor.black.onDark(.white)
+    static let tertiary: UIColor = UIColor.white.onDark(.black)
 }

@@ -23,7 +23,7 @@ final class MovieTableViewCell: UITableViewCell {
     private lazy var containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .white
+        view.backgroundColor = .tertiary
         view.layer.cornerRadius = Constants.cornerRadius
         return view
     }()
@@ -49,6 +49,7 @@ final class MovieTableViewCell: UITableViewCell {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
+        label.textColor = .secondary
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         return label
