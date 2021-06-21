@@ -23,6 +23,7 @@
 		23A3ECB32680E8AC00A307E4 /* HTTPQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A3ECB22680E8AC00A307E4 /* HTTPQuery.swift */; };
 		23A3ECB52680E8B900A307E4 /* HTTPBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A3ECB42680E8B900A307E4 /* HTTPBody.swift */; };
 		23A3ECB72680E9F600A307E4 /* HTTPHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A3ECB62680E9F600A307E4 /* HTTPHeaders.swift */; };
+		23A3ECB92680EAA800A307E4 /* NetworkUrlProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A3ECB82680EAA800A307E4 /* NetworkUrlProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		23A3ECB22680E8AC00A307E4 /* HTTPQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPQuery.swift; sourceTree = "<group>"; };
 		23A3ECB42680E8B900A307E4 /* HTTPBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPBody.swift; sourceTree = "<group>"; };
 		23A3ECB62680E9F600A307E4 /* HTTPHeaders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeaders.swift; sourceTree = "<group>"; };
+		23A3ECB82680EAA800A307E4 /* NetworkUrlProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUrlProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 			children = (
 				23A3EC8A2680E34000A307E4 /* NetworkService.swift */,
 				23A3ECA62680E69E00A307E4 /* NetworkError.swift */,
+				23A3ECB82680EAA800A307E4 /* NetworkUrlProvider.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23A3ECB72680E9F600A307E4 /* HTTPHeaders.swift in Sources */,
+				23A3ECB92680EAA800A307E4 /* NetworkUrlProvider.swift in Sources */,
 				23A3ECB32680E8AC00A307E4 /* HTTPQuery.swift in Sources */,
 				23A3EC8B2680E34000A307E4 /* NetworkService.swift in Sources */,
 				23A3ECA72680E69E00A307E4 /* NetworkError.swift in Sources */,

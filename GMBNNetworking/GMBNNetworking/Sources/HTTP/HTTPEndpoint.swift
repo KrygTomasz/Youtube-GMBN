@@ -30,7 +30,7 @@ extension HTTPEndpoint {
         }
     }
     
-    public var baseURL: URL { return URL(string: "")! }
+    public var baseURL: URL { return NetworkUrlProvider().baseUrl }
     public var method: Moya.Method { return httpMethod }
     public var sampleData: Data { return Data() }
     public var headers: [String : String]? { return httpHeaders.headers }
