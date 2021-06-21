@@ -16,10 +16,13 @@ final class MoviesListViewController: UIViewController {
     }()
     
     let viewModel: MoviesListViewModel
+    let tableAdapter: MoviesListTableAdapter
     
     init(viewModel: MoviesListViewModel) {
         self.viewModel = viewModel
+        self.tableAdapter = MoviesListTableAdapter()
         super.init(nibName: nil, bundle: nil)
+        tableAdapter.setup(tableView: tableView, viewModel: viewModel)
     }
     
     required init?(coder: NSCoder) {
