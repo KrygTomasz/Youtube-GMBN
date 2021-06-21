@@ -53,6 +53,13 @@ final class MoviesListTableAdapter {
                 if isRefreshing { viewModel.refresh() }
             })
             .disposed(by: disposeBag)
+        
+        tableView.rx.itemSelected
+            .asDriver()
+            .drive(onNext: { indexPath in
+                viewModel.input.selectMovie.accept(indexPath)
+            })
+            .disposed(by: disposeBag)
     }
     
     private func getCell(for viewData: MovieViewData, at indexPath: IndexPath, in tableView: UITableView) -> MovieTableViewCell {

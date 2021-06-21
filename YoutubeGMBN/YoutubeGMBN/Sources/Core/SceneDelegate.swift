@@ -15,12 +15,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
+        window?.rootViewController = prepareRoot()
+        window?.makeKeyAndVisible()
+    }
+    
+    private func prepareRoot() -> UIViewController {
         let rootViewController = UINavigationController()
         rootViewController.navigationBar.barStyle = .black
         rootViewController.navigationBar.tintColor = .tertiary
-        let viewModel = MoviesListViewModel()
-        rootViewController.pushViewController(MoviesListViewController(viewModel: viewModel), animated: false)
-        window?.rootViewController = rootViewController
-        window?.makeKeyAndVisible()
+        rootViewController.pushViewController(MoviesListViewControllerFactory.create(), animated: false)
+        return rootViewController
     }
 }

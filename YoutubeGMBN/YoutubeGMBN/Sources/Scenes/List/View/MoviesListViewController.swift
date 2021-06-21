@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 final class MoviesListViewController: UIViewController {
     
@@ -22,6 +23,7 @@ final class MoviesListViewController: UIViewController {
     
     let viewModel: MoviesListViewModel
     let tableAdapter: MoviesListTableAdapter
+    let disposeBag: DisposeBag = DisposeBag()
     
     init(viewModel: MoviesListViewModel) {
         self.viewModel = viewModel
@@ -29,6 +31,12 @@ final class MoviesListViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         tableView.refreshControl = refreshControl
         tableAdapter.setup(tableView: tableView, viewModel: viewModel)
+        
+        viewModel.output.selectedMovie
+            .subscribe(onNext: { [weak self] movie in
+                self?.goToDetails(movie: movie)
+            })
+            .disposed(by: disposeBag)
     }
     
     required init?(coder: NSCoder) {
@@ -47,5 +55,10 @@ final class MoviesListViewController: UIViewController {
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    }
+    
+    private func goToDetails(movie: Movie) {
+        let viewController = MovieDetailsViewControllerFactory.create(movie: movie)
+        present(viewController, animated: true)
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 struct MovieMapper {
     private static var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-ddThh:mm:ssZ"
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
         return formatter
     }
     
@@ -23,11 +23,13 @@ struct MovieMapper {
             let title = movie.snippet?.title ?? ""
             let description = movie.snippet?.description ?? ""
             let defaultThumbnailUrl = movie.snippet?.thumbnails?.default?.url ?? ""
+            let highThumbnailUrl = movie.snippet?.thumbnails?.high?.url ?? ""
             return Movie(id: .init(videoId: videoId),
                          snippet: .init(publishedAt: publishDate,
                                         title: title,
                                         description: description,
-                                        thumbnails: .init(default: .init(url: defaultThumbnailUrl))))
+                                        thumbnails: .init(default: .init(url: defaultThumbnailUrl),
+                                                          high: .init(url: highThumbnailUrl))))
         }
         return .init(movies: movies)
     }

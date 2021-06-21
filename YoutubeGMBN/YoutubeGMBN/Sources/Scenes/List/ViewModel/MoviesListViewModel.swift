@@ -23,6 +23,8 @@ final class MoviesListViewModel {
     struct Output {
         fileprivate let dataRelay: BehaviorRelay<[Movie]> = .init(value: [])
         var viewData: Driver<[MovieViewData]> { return dataRelay.asDriver().map { $0.map { MovieViewDataFactory.create($0) } } }
+        fileprivate let selectedMovieRelay: PublishRelay<Movie> = .init()
+        var selectedMovie: Observable<Movie> { return selectedMovieRelay.asObservable() }
     }
     
     private let useCase: MoviesListUseCase
@@ -35,6 +37,7 @@ final class MoviesListViewModel {
     init() {
         let service = MoviesNetworkService()
         useCase = MoviesListUseCase(moviesService: service)
+        setupBinding()
         refresh()
     }
     
@@ -48,5 +51,21 @@ final class MoviesListViewModel {
                 self?.eventsRelay.accept(.hideLoading)
             })
             .disposed(by: disposeBag)
+    }
+    
+    private func setupBinding() {
+        input.selectMovie
+            .subscribe(onNext: { [weak self] indexPath in
+                self?.selectMovie(at: indexPath)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func selectMovie(at indexPath: IndexPath) {
+        let index = indexPath.row
+        let movies = output.dataRelay.value
+        guard index < movies.count else { return }
+        let movie = movies[index]
+        output.selectedMovieRelay.accept(movie)
     }
 }

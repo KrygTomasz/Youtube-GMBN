@@ -29,6 +29,7 @@ struct MovieSnippet {
 
 struct MovieThumbnailContainer {
     let `default`: MovieThumbnail
+    let high: MovieThumbnail
 }
 
 struct MovieThumbnail {

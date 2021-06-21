@@ -29,6 +29,7 @@ struct MovieSnippetResponse: Decodable {
 
 struct MovieThumbnailContainerResponse: Decodable {
     let `default`: MovieThumbnailResponse?
+    let high: MovieThumbnailResponse?
 }
 
 struct MovieThumbnailResponse: Decodable {
