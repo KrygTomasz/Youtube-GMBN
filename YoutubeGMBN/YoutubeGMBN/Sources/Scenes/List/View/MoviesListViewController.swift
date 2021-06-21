@@ -15,6 +15,11 @@ final class MoviesListViewController: UIViewController {
         return view
     }()
     
+    lazy var refreshControl: UIRefreshControl = {
+        let view = UIRefreshControl()
+        return view
+    }()
+    
     let viewModel: MoviesListViewModel
     let tableAdapter: MoviesListTableAdapter
     
@@ -22,6 +27,7 @@ final class MoviesListViewController: UIViewController {
         self.viewModel = viewModel
         self.tableAdapter = MoviesListTableAdapter()
         super.init(nibName: nil, bundle: nil)
+        tableView.refreshControl = refreshControl
         tableAdapter.setup(tableView: tableView, viewModel: viewModel)
     }
     

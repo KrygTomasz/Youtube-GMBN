@@ -26,11 +26,33 @@ final class MoviesListTableAdapter {
         tableView.register(cells: Cell.self)
         tableView.separatorStyle = .none
         tableView.backgroundColor = .primary
+        setupBinding(tableView: tableView, viewModel: viewModel)
+    }
+    
+    private func setupBinding(tableView: UITableView, viewModel: MoviesListViewModel) {
         viewModel.output.viewData
             .drive(tableView.rx.items) { [weak self] (tableView, row, item) in
                 guard let self = self else { return UITableViewCell() }
                 return self.getCell(for: item, at: IndexPath(row: row, section: 0), in: tableView)
             }.disposed(by: disposeBag)
+        
+        viewModel.events
+            .drive(onNext: { event in
+                switch event {
+                case .showLoading:
+                    tableView.refreshControl?.beginRefreshing()
+                case .hideLoading:
+                    tableView.refreshControl?.endRefreshing()
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        tableView.refreshControl?.rx.controlEvent(.valueChanged)
+            .subscribe(onNext: { _ in
+                let isRefreshing = tableView.refreshControl?.isRefreshing ?? false
+                if isRefreshing { viewModel.refresh() }
+            })
+            .disposed(by: disposeBag)
     }
     
     private func getCell(for viewData: MovieViewData, at indexPath: IndexPath, in tableView: UITableView) -> MovieTableViewCell {
