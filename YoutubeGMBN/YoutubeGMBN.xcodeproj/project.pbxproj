@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,9 @@
 		23A3EC202680E0D100A307E4 /* YoutubeGMBNUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A3EC1F2680E0D100A307E4 /* YoutubeGMBNUITests.swift */; };
 		23A3EC8D2680E36000A307E4 /* GMBNNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A3EC852680E2FD00A307E4 /* GMBNNetworking.framework */; };
 		23A3EC8E2680E36000A307E4 /* GMBNNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A3EC852680E2FD00A307E4 /* GMBNNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		23A3ECA02680E46700A307E4 /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 23A3EC9F2680E46700A307E4 /* RxTest */; };
+		23A3ECA22680E46700A307E4 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 23A3ECA12680E46700A307E4 /* RxCocoa */; };
+		23A3ECA42680E46700A307E4 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 23A3ECA32680E46700A307E4 /* RxSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +95,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23A3ECA42680E46700A307E4 /* RxSwift in Frameworks */,
+				23A3ECA22680E46700A307E4 /* RxCocoa in Frameworks */,
 				23A3EC8D2680E36000A307E4 /* GMBNNetworking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -100,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23A3ECA02680E46700A307E4 /* RxTest in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +206,10 @@
 				23A3EC912680E37600A307E4 /* PBXTargetDependency */,
 			);
 			name = YoutubeGMBN;
+			packageProductDependencies = (
+				23A3ECA12680E46700A307E4 /* RxCocoa */,
+				23A3ECA32680E46700A307E4 /* RxSwift */,
+			);
 			productName = YoutubeGMBN;
 			productReference = 23A3EBFA2680E0CD00A307E4 /* YoutubeGMBN.app */;
 			productType = "com.apple.product-type.application";
@@ -218,6 +228,9 @@
 				23A3EC122680E0D100A307E4 /* PBXTargetDependency */,
 			);
 			name = YoutubeGMBNTests;
+			packageProductDependencies = (
+				23A3EC9F2680E46700A307E4 /* RxTest */,
+			);
 			productName = YoutubeGMBNTests;
 			productReference = 23A3EC102680E0D100A307E4 /* YoutubeGMBNTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -271,6 +284,9 @@
 				Base,
 			);
 			mainGroup = 23A3EBF12680E0CD00A307E4;
+			packageReferences = (
+				23A3EC9E2680E46700A307E4 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = 23A3EBFB2680E0CD00A307E4 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
@@ -670,6 +686,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		23A3EC9E2680E46700A307E4 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		23A3EC9F2680E46700A307E4 /* RxTest */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 23A3EC9E2680E46700A307E4 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxTest;
+		};
+		23A3ECA12680E46700A307E4 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 23A3EC9E2680E46700A307E4 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		23A3ECA32680E46700A307E4 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 23A3EC9E2680E46700A307E4 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 23A3EBF22680E0CD00A307E4 /* Project object */;
 }

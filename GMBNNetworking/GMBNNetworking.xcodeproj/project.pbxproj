@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,11 @@
 		23A3EC742680E2D400A307E4 /* GMBNNetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A3EC732680E2D400A307E4 /* GMBNNetworkingTests.swift */; };
 		23A3EC762680E2D400A307E4 /* GMBNNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 23A3EC682680E2D400A307E4 /* GMBNNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		23A3EC8B2680E34000A307E4 /* NetworkTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A3EC8A2680E34000A307E4 /* NetworkTest.swift */; };
+		23A3EC942680E43500A307E4 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 23A3EC932680E43500A307E4 /* Moya */; };
+		23A3EC962680E43500A307E4 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 23A3EC952680E43500A307E4 /* RxMoya */; };
+		23A3EC992680E45300A307E4 /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 23A3EC982680E45300A307E4 /* RxTest */; };
+		23A3EC9B2680E45300A307E4 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 23A3EC9A2680E45300A307E4 /* RxSwift */; };
+		23A3EC9D2680E45300A307E4 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 23A3EC9C2680E45300A307E4 /* RxCocoa */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +43,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23A3EC9B2680E45300A307E4 /* RxSwift in Frameworks */,
+				23A3EC962680E43500A307E4 /* RxMoya in Frameworks */,
+				23A3EC9D2680E45300A307E4 /* RxCocoa in Frameworks */,
+				23A3EC942680E43500A307E4 /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23A3EC992680E45300A307E4 /* RxTest in Frameworks */,
 				23A3EC6F2680E2D400A307E4 /* GMBNNetworking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -133,6 +143,12 @@
 			dependencies = (
 			);
 			name = GMBNNetworking;
+			packageProductDependencies = (
+				23A3EC932680E43500A307E4 /* Moya */,
+				23A3EC952680E43500A307E4 /* RxMoya */,
+				23A3EC9A2680E45300A307E4 /* RxSwift */,
+				23A3EC9C2680E45300A307E4 /* RxCocoa */,
+			);
 			productName = GMBNNetworking;
 			productReference = 23A3EC652680E2D400A307E4 /* GMBNNetworking.framework */;
 			productType = "com.apple.product-type.framework";
@@ -151,6 +167,9 @@
 				23A3EC712680E2D400A307E4 /* PBXTargetDependency */,
 			);
 			name = GMBNNetworkingTests;
+			packageProductDependencies = (
+				23A3EC982680E45300A307E4 /* RxTest */,
+			);
 			productName = GMBNNetworkingTests;
 			productReference = 23A3EC6E2680E2D400A307E4 /* GMBNNetworkingTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -182,6 +201,10 @@
 				Base,
 			);
 			mainGroup = 23A3EC5B2680E2D400A307E4;
+			packageReferences = (
+				23A3EC922680E43400A307E4 /* XCRemoteSwiftPackageReference "Moya" */,
+				23A3EC972680E45300A307E4 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = 23A3EC662680E2D400A307E4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -481,6 +504,53 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		23A3EC922680E43400A307E4 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 14.0.1;
+			};
+		};
+		23A3EC972680E45300A307E4 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		23A3EC932680E43500A307E4 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 23A3EC922680E43400A307E4 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		23A3EC952680E43500A307E4 /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 23A3EC922680E43400A307E4 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
+		};
+		23A3EC982680E45300A307E4 /* RxTest */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 23A3EC972680E45300A307E4 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxTest;
+		};
+		23A3EC9A2680E45300A307E4 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 23A3EC972680E45300A307E4 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		23A3EC9C2680E45300A307E4 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 23A3EC972680E45300A307E4 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 23A3EC5C2680E2D400A307E4 /* Project object */;
 }
