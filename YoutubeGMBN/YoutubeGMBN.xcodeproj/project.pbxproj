@@ -14,6 +14,8 @@
 		23A3EC0A2680E0D100A307E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23A3EC082680E0D100A307E4 /* LaunchScreen.storyboard */; };
 		23A3EC152680E0D100A307E4 /* YoutubeGMBNTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A3EC142680E0D100A307E4 /* YoutubeGMBNTests.swift */; };
 		23A3EC202680E0D100A307E4 /* YoutubeGMBNUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A3EC1F2680E0D100A307E4 /* YoutubeGMBNUITests.swift */; };
+		23A3EC8D2680E36000A307E4 /* GMBNNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A3EC852680E2FD00A307E4 /* GMBNNetworking.framework */; };
+		23A3EC8E2680E36000A307E4 /* GMBNNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23A3EC852680E2FD00A307E4 /* GMBNNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +33,42 @@
 			remoteGlobalIDString = 23A3EBF92680E0CD00A307E4;
 			remoteInfo = YoutubeGMBN;
 		};
+		23A3EC842680E2FD00A307E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 23A3EC7F2680E2FD00A307E4 /* GMBNNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 23A3EC652680E2D400A307E4;
+			remoteInfo = GMBNNetworking;
+		};
+		23A3EC862680E2FD00A307E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 23A3EC7F2680E2FD00A307E4 /* GMBNNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 23A3EC6E2680E2D400A307E4;
+			remoteInfo = GMBNNetworkingTests;
+		};
+		23A3EC902680E37600A307E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 23A3EC7F2680E2FD00A307E4 /* GMBNNetworking.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 23A3EC642680E2D400A307E4;
+			remoteInfo = GMBNNetworking;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		23A3EC8F2680E36000A307E4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				23A3EC8E2680E36000A307E4 /* GMBNNetworking.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		23A3EBFA2680E0CD00A307E4 /* YoutubeGMBN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YoutubeGMBN.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +84,7 @@
 		23A3EC1B2680E0D100A307E4 /* YoutubeGMBNUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YoutubeGMBNUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		23A3EC1F2680E0D100A307E4 /* YoutubeGMBNUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeGMBNUITests.swift; sourceTree = "<group>"; };
 		23A3EC212680E0D100A307E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		23A3EC7F2680E2FD00A307E4 /* GMBNNetworking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GMBNNetworking.xcodeproj; path = ../GMBNNetworking/GMBNNetworking.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23A3EC8D2680E36000A307E4 /* GMBNNetworking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,10 +116,12 @@
 		23A3EBF12680E0CD00A307E4 = {
 			isa = PBXGroup;
 			children = (
+				23A3EC7F2680E2FD00A307E4 /* GMBNNetworking.xcodeproj */,
 				23A3EBFC2680E0CD00A307E4 /* YoutubeGMBN */,
 				23A3EC132680E0D100A307E4 /* YoutubeGMBNTests */,
 				23A3EC1E2680E0D100A307E4 /* YoutubeGMBNUITests */,
 				23A3EBFB2680E0CD00A307E4 /* Products */,
+				23A3EC8C2680E36000A307E4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +166,22 @@
 			path = YoutubeGMBNUITests;
 			sourceTree = "<group>";
 		};
+		23A3EC802680E2FD00A307E4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				23A3EC852680E2FD00A307E4 /* GMBNNetworking.framework */,
+				23A3EC872680E2FD00A307E4 /* GMBNNetworkingTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		23A3EC8C2680E36000A307E4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,10 +192,12 @@
 				23A3EBF62680E0CD00A307E4 /* Sources */,
 				23A3EBF72680E0CD00A307E4 /* Frameworks */,
 				23A3EBF82680E0CD00A307E4 /* Resources */,
+				23A3EC8F2680E36000A307E4 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				23A3EC912680E37600A307E4 /* PBXTargetDependency */,
 			);
 			name = YoutubeGMBN;
 			productName = YoutubeGMBN;
@@ -214,6 +273,12 @@
 			mainGroup = 23A3EBF12680E0CD00A307E4;
 			productRefGroup = 23A3EBFB2680E0CD00A307E4 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 23A3EC802680E2FD00A307E4 /* Products */;
+					ProjectRef = 23A3EC7F2680E2FD00A307E4 /* GMBNNetworking.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				23A3EBF92680E0CD00A307E4 /* YoutubeGMBN */,
@@ -222,6 +287,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		23A3EC852680E2FD00A307E4 /* GMBNNetworking.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GMBNNetworking.framework;
+			remoteRef = 23A3EC842680E2FD00A307E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		23A3EC872680E2FD00A307E4 /* GMBNNetworkingTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = GMBNNetworkingTests.xctest;
+			remoteRef = 23A3EC862680E2FD00A307E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		23A3EBF82680E0CD00A307E4 /* Resources */ = {
@@ -288,6 +370,11 @@
 			isa = PBXTargetDependency;
 			target = 23A3EBF92680E0CD00A307E4 /* YoutubeGMBN */;
 			targetProxy = 23A3EC1C2680E0D100A307E4 /* PBXContainerItemProxy */;
+		};
+		23A3EC912680E37600A307E4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GMBNNetworking;
+			targetProxy = 23A3EC902680E37600A307E4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
