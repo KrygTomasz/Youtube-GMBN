@@ -19,8 +19,15 @@ struct MovieDetailsMapper {
         let title = item.snippet?.localized?.title ?? ""
         let description = item.snippet?.localized?.description ?? ""
         let imageUrl = item.snippet?.thumbnails?.high?.url
-        let duration = item.contentDetails?.duration ?? ""
+        let duration = parseDuration(item.contentDetails?.duration)
         let date = dateFormatter.date(from: item.snippet?.publishedAt ?? "")
         return .init(title: title, description: description, imageThumbnail: .init(url: imageUrl), duration: duration, date: date)
+    }
+    
+    private static func parseDuration(_ duration: String?) -> String {
+        let duration = (duration ?? "").replacingOccurrences(of: "PT", with: "").lowercased()
+        return duration.map { char -> String in
+            return !char.isNumber ? "\(char) " : "\(char)"
+        }.joined()
     }
 }

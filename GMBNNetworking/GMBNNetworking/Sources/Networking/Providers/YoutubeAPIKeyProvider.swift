@@ -8,5 +8,5 @@
 import Foundation
 
 struct YoutubeAPIKeyProvider { // TODO: Should be secured
-    var key: String { return "AIzaSyBrjWuNtmyKf5-M8hgWgccXH93d-FbPDkg" }
+    var key: String { return "AIzaSyD1ARAkbAB5RXSaS7hAvf0dhDWMkbIfYt0" }
 }

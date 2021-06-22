@@ -12,6 +12,7 @@ final class MovieDetailsViewModel {
     struct Output {
         fileprivate let viewDataRelay: BehaviorRelay<MovieDetailViewData?> = .init(value: nil)
         var viewData: Driver<MovieDetailViewData?> { return viewDataRelay.asDriver() }
+        var currentViewData: MovieDetailViewData? { return viewDataRelay.value }
     }
     
     private let disposeBag: DisposeBag = DisposeBag()

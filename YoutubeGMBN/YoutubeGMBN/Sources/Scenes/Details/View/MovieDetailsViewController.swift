@@ -11,23 +11,20 @@ import RxCocoa
 
 final class MovieDetailsViewController: UIViewController {
     
-    lazy var containerView: UIView = {
-        let view = UIView()
+    lazy var tableView: UITableView = {
+        let view = UITableView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    lazy var movieDetailsView: MovieDetailsView = {
-        let view = MovieDetailsView()
-        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .primary
         return view
     }()
     
     private let disposeBag: DisposeBag = DisposeBag()
     let viewModel: MovieDetailsViewModel
+    let tableAdapter: MovieDetailsTableAdapter
     
     init(viewModel: MovieDetailsViewModel) {
         self.viewModel = viewModel
+        self.tableAdapter = MovieDetailsTableAdapter()
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -39,31 +36,24 @@ final class MovieDetailsViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupViewData()
+        tableAdapter.setup(tableView: tableView, viewModel: viewModel)
+        tableView.delegate = tableAdapter
+        tableView.dataSource = tableAdapter
     }
     
     private func setupUI() {
         view.backgroundColor = .primary
-        view.addSubview(containerView)
-        containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        containerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        
-        containerView.addSubview(movieDetailsView)
-        movieDetailsView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        movieDetailsView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        movieDetailsView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        movieDetailsView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        view.addSubview(tableView)
+        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
     private func setupViewData() {
         viewModel.output.viewData
-            .drive(onNext: { [weak self] viewData in
-                self?.movieDetailsView.titleLabel.text = viewData?.title
-                self?.movieDetailsView.descriptionLabel.text = viewData?.description
-                self?.movieDetailsView.dateLabel.text = viewData?.date
-                self?.movieDetailsView.durationLabel.text = viewData?.duration
-                self?.movieDetailsView.movieImageView.setImage(url: viewData?.imageName ?? "")
+            .drive(onNext: { [weak self] _ in
+                self?.tableView.reloadData()
             })
             .disposed(by: disposeBag)
     }
