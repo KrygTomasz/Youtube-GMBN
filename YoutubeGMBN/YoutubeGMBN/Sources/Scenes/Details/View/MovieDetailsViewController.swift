@@ -56,5 +56,11 @@ final class MovieDetailsViewController: UIViewController {
                 self?.tableView.reloadData()
             })
             .disposed(by: disposeBag)
+        
+        viewModel.output.commentViewData
+            .drive(onNext: { [weak self] _ in
+                self?.tableView.reloadData()
+            })
+            .disposed(by: disposeBag)
     }
 }

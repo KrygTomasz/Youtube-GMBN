@@ -20,6 +20,7 @@ class MovieDetailsTableAdapter: NSObject {
         case duration
         case title
         case description
+        case comments
         
         var cellType: UITableViewCell.Type {
             switch self {
@@ -32,6 +33,8 @@ class MovieDetailsTableAdapter: NSObject {
             case .date:
                 return LabelTableViewCell.self
             case .duration:
+                return LabelTableViewCell.self
+            case .comments:
                 return LabelTableViewCell.self
             }
         }
@@ -47,13 +50,21 @@ class MovieDetailsTableAdapter: NSObject {
     }
 }
 
+// MARK: – UITableView delegates
+
 extension MovieDetailsTableAdapter: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return Cell.allCases.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        guard let section = Cell(rawValue: section) else { return 0 }
+        switch section {
+        case .comments:
+            return viewModel?.output.currentCommentViewData.count ?? 0
+        default:
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -64,25 +75,59 @@ extension MovieDetailsTableAdapter: UITableViewDataSource, UITableViewDelegate {
             cell.imageContainer.setImage(url: viewModel?.output.currentViewData?.imageName ?? "")
             return cell
         case .date:
-            let cell = tableView.dequeueReusableCell(cell: Cell.date, for: indexPath) as! LabelTableViewCell
-            cell.titleLabel.text = viewModel?.output.currentViewData?.date
-            cell.set(font: .boldSystemFont(ofSize: Constants.smallFontSize), alignment: .right)
-            return cell
+            return getDateCell(at: indexPath, tableView: tableView)
         case .title:
-            let cell = tableView.dequeueReusableCell(cell: Cell.title, for: indexPath) as! LabelTableViewCell
-            cell.titleLabel.text = viewModel?.output.currentViewData?.title
-            cell.set(font: .boldSystemFont(ofSize: Constants.bigFontSize), alignment: .left)
-            return cell
+            return getTitleCell(at: indexPath, tableView: tableView)
         case .description:
-            let cell = tableView.dequeueReusableCell(cell: Cell.description, for: indexPath) as! LabelTableViewCell
-            cell.titleLabel.text = viewModel?.output.currentViewData?.description
-            cell.set(font: .italicSystemFont(ofSize: Constants.mediumFontSize), alignment: .left)
-            return cell
+            return getDescriptionCell(at: indexPath, tableView: tableView)
         case .duration:
-            let cell = tableView.dequeueReusableCell(cell: Cell.duration, for: indexPath) as! LabelTableViewCell
-            cell.titleLabel.text = viewModel?.output.currentViewData?.duration
-            cell.set(font: .boldSystemFont(ofSize: Constants.smallFontSize), alignment: .right)
-            return cell
+            return getDurationCell(at: indexPath, tableView: tableView)
+        case .comments:
+            return getCommentCell(at: indexPath, tableView: tableView)
         }
+    }
+    
+    // MARK: – Cells configuration
+    
+    private func getDateCell(at indexPath: IndexPath, tableView: UITableView) -> LabelTableViewCell {
+        let cell = tableView.dequeueReusableCell(cell: Cell.date, for: indexPath) as! LabelTableViewCell
+        cell.set(title: viewModel?.output.currentViewData?.date)
+        cell.setTitle(font: .boldSystemFont(ofSize: Constants.smallFontSize), alignment: .right, color: .tertiary)
+        cell.containerView.backgroundColor = .clear
+        return cell
+    }
+    
+    private func getTitleCell(at indexPath: IndexPath, tableView: UITableView) -> LabelTableViewCell {
+        let cell = tableView.dequeueReusableCell(cell: Cell.title, for: indexPath) as! LabelTableViewCell
+        cell.set(title: viewModel?.output.currentViewData?.title)
+        cell.setTitle(font: .boldSystemFont(ofSize: Constants.bigFontSize), alignment: .left, color: .tertiary)
+        cell.containerView.backgroundColor = .clear
+        return cell
+    }
+    
+    private func getDescriptionCell(at indexPath: IndexPath, tableView: UITableView) -> LabelTableViewCell {
+        let cell = tableView.dequeueReusableCell(cell: Cell.description, for: indexPath) as! LabelTableViewCell
+        cell.set(title: viewModel?.output.currentViewData?.description)
+        cell.setTitle(font: .italicSystemFont(ofSize: Constants.mediumFontSize), alignment: .left, color: .tertiary)
+        cell.containerView.backgroundColor = .clear
+        return cell
+    }
+    
+    private func getDurationCell(at indexPath: IndexPath, tableView: UITableView) -> LabelTableViewCell {
+        let cell = tableView.dequeueReusableCell(cell: Cell.duration, for: indexPath) as! LabelTableViewCell
+        cell.set(title: viewModel?.output.currentViewData?.duration)
+        cell.setTitle(font: .boldSystemFont(ofSize: Constants.smallFontSize), alignment: .right, color: .tertiary)
+        cell.containerView.backgroundColor = .clear
+        return cell
+    }
+    
+    private func getCommentCell(at indexPath: IndexPath, tableView: UITableView) -> LabelTableViewCell {
+        let cell = tableView.dequeueReusableCell(cell: Cell.duration, for: indexPath) as! LabelTableViewCell
+        let viewData = viewModel?.output.getCommentViewData(at: indexPath)
+        cell.set(title: viewData?.text, description: viewData?.author)
+        cell.setTitle(font: .systemFont(ofSize: Constants.smallFontSize), alignment: .left, color: .secondary)
+        cell.setDescription(font: .italicSystemFont(ofSize: Constants.smallFontSize), alignment: .right, color: .secondary)
+        cell.containerView.backgroundColor = .tertiary
+        return cell
     }
 }

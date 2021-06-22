@@ -47,7 +47,6 @@ extension MoviesEndpoint: HTTPEndpoint {
                 .add(key: "part", value: "snippet")
                 .add(key: "textFormat", value: "plainText")
                 .add(key: "maxResults", value: "100")
-                .add(key: "order", value: "date")
         }
     }
     

@@ -9,6 +9,7 @@ import RxSwift
 
 protocol MovieDetailsUseCaseProtocol {
     func getDetails(id: String) -> Single<MovieDetailsContainer?>
+    func getComments(id: String) -> Single<[MovieComment]>
 }
 
 struct MovieDetailsUseCase: MovieDetailsUseCaseProtocol {
@@ -21,5 +22,10 @@ struct MovieDetailsUseCase: MovieDetailsUseCaseProtocol {
     func getDetails(id: String) -> Single<MovieDetailsContainer?> {
         return moviesService.getMovieDetails(id: id)
             .map { MovieDetailsMapper.map(response: $0) }
+    }
+    
+    func getComments(id: String) -> Single<[MovieComment]> {
+        return moviesService.getComments(id: id)
+            .map { MovieCommentsMapper.map(response: $0) }
     }
 }

@@ -8,10 +8,19 @@
 import UIKit
 
 class LabelTableViewCell: UITableViewCell {
-    private lazy var containerView: UIView = {
+    lazy var containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .clear
+        view.layer.cornerRadius = .mediumMargin
+        return view
+    }()
+    
+    lazy var labelStackView: UIStackView = {
+        let view = UIStackView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.axis = .vertical
+        view.distribution = .fillProportionally
         return view
     }()
     
@@ -19,7 +28,13 @@ class LabelTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
-        label.textColor = .tertiary
+        return label
+    }()
+    
+    lazy var descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
         return label
     }()
     
@@ -38,21 +53,36 @@ class LabelTableViewCell: UITableViewCell {
         backgroundColor = .clear
         contentView.addSubview(containerView)
 
-        containerView.addSubview(titleLabel)
-        
+        containerView.addSubview(labelStackView)
+        labelStackView.addArrangedSubview(titleLabel)
+        labelStackView.addArrangedSubview(descriptionLabel)
+
         containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .hugeMargin).isActive = true
         containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: .smallMargin).isActive = true
         containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.hugeMargin).isActive = true
         containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -.smallMargin).isActive = true
         
-        titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
-        titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
-        titleLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
+        labelStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: .smallMargin).isActive = true
+        labelStackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: .smallMargin).isActive = true
+        labelStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -.smallMargin).isActive = true
+        labelStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -.smallMargin).isActive = true
     }
     
-    func set(font: UIFont, alignment: NSTextAlignment) {
+    func setTitle(font: UIFont, alignment: NSTextAlignment, color: UIColor) {
         titleLabel.font = font
         titleLabel.textAlignment = alignment
+        titleLabel.textColor = color
+    }
+    
+    func setDescription(font: UIFont, alignment: NSTextAlignment, color: UIColor) {
+        descriptionLabel.font = font
+        descriptionLabel.textAlignment = alignment
+        descriptionLabel.textColor = color
+    }
+    
+    func set(title: String?, description: String? = nil) {
+        titleLabel.text = title
+        descriptionLabel.text = description
+        descriptionLabel.isHidden = description == nil
     }
 }
