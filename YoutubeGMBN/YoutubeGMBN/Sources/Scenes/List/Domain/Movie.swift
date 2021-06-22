@@ -7,31 +7,31 @@
 
 import Foundation
 
-struct MoviesContainer {
+struct MoviesContainer: Equatable {
     let movies: [Movie]
 }
 
-struct Movie {
+struct Movie: Equatable {
     let id: MovieId
     let snippet: MovieSnippet
 }
 
-struct MovieId {
+struct MovieId: Equatable {
     let videoId: String
 }
 
-struct MovieSnippet {
+struct MovieSnippet: Equatable {
     let publishedAt: Date?
     let title: String
     let description: String
     let thumbnails: MovieThumbnailContainer
 }
 
-struct MovieThumbnailContainer {
+struct MovieThumbnailContainer: Equatable {
     let `default`: MovieThumbnail
     let high: MovieThumbnail
 }
 
-struct MovieThumbnail {
+struct MovieThumbnail: Equatable {
     let url: String?
 }

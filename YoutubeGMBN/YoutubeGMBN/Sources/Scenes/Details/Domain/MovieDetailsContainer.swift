@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MovieDetailsContainer {
+struct MovieDetailsContainer: Equatable {
     let title: String
     let description: String
     let imageThumbnail: MovieThumbnail

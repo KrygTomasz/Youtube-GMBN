@@ -28,6 +28,6 @@ struct MovieDetailsMapper {
         let duration = (duration ?? "").replacingOccurrences(of: "PT", with: "").lowercased()
         return duration.map { char -> String in
             return !char.isNumber ? "\(char) " : "\(char)"
-        }.joined()
+        }.joined().trimmingCharacters(in: .whitespaces)
     }
 }

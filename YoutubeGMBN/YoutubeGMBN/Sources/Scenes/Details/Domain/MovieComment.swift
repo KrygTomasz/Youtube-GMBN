@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MovieComment {
+struct MovieComment: Equatable {
     let text: String
     let author: String
 }
