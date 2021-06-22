@@ -10,6 +10,7 @@
 		2350839426813EFE00039F6B /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2350839326813EFE00039F6B /* ImageTableViewCell.swift */; };
 		2350839626813F0F00039F6B /* LabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2350839526813F0F00039F6B /* LabelTableViewCell.swift */; };
 		2350839826813F2300039F6B /* MovieDetailsTableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2350839726813F2300039F6B /* MovieDetailsTableAdapter.swift */; };
+		235084002681BF8F00039F6B /* MovieCommentsContainerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235083FF2681BF8F00039F6B /* MovieCommentsContainerResponse.swift */; };
 		23A3EBFE2680E0CD00A307E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A3EBFD2680E0CD00A307E4 /* AppDelegate.swift */; };
 		23A3EC002680E0CD00A307E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A3EBFF2680E0CD00A307E4 /* SceneDelegate.swift */; };
 		23A3EC022680E0CD00A307E4 /* MoviesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A3EC012680E0CD00A307E4 /* MoviesListViewController.swift */; };
@@ -109,6 +110,7 @@
 		2350839326813EFE00039F6B /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
 		2350839526813F0F00039F6B /* LabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTableViewCell.swift; sourceTree = "<group>"; };
 		2350839726813F2300039F6B /* MovieDetailsTableAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsTableAdapter.swift; sourceTree = "<group>"; };
+		235083FF2681BF8F00039F6B /* MovieCommentsContainerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCommentsContainerResponse.swift; sourceTree = "<group>"; };
 		23A3EBFA2680E0CD00A307E4 /* YoutubeGMBN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YoutubeGMBN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23A3EBFD2680E0CD00A307E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23A3EBFF2680E0CD00A307E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -480,6 +482,7 @@
 			children = (
 				23A3ED1A26811BEB00A307E4 /* MovieDetailsContainerResponse.swift */,
 				23A3ED1F2681227D00A307E4 /* MovieDetailsMapper.swift */,
+				235083FF2681BF8F00039F6B /* MovieCommentsContainerResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -671,6 +674,7 @@
 				23A3ECCF2680F2D000A307E4 /* MoviesService.swift in Sources */,
 				23A3ECDA2680F35C00A307E4 /* Movie.swift in Sources */,
 				23A3ED0826810B3B00A307E4 /* MovieDetailsViewModel.swift in Sources */,
+				235084002681BF8F00039F6B /* MovieCommentsContainerResponse.swift in Sources */,
 				23A3ECCC2680EEC000A307E4 /* MoviesListUseCase.swift in Sources */,
 				23A3ED1726811A1200A307E4 /* MovieDetailsUseCase.swift in Sources */,
 				23A3ECE02680FA3000A307E4 /* MovieViewData.swift in Sources */,

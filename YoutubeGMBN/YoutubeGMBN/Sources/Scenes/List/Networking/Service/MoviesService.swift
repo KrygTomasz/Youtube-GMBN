@@ -11,6 +11,7 @@ import GMBNNetworking
 protocol MoviesService {
     func getMovies() -> Single<MoviesContainerResponse>
     func getMovieDetails(id: String) -> Single<MovieDetailsContainerResponse>
+    func getComments(id: String) -> Single<MovieCommentsContainerResponse>
 }
 
 final class MoviesNetworkService: MoviesService {
@@ -22,5 +23,9 @@ final class MoviesNetworkService: MoviesService {
     
     func getMovieDetails(id: String) -> Single<MovieDetailsContainerResponse> {
         return networkService.call(endpoint: .movieDetails(id: id))
+    }
+    
+    func getComments(id: String) -> Single<MovieCommentsContainerResponse> {
+        return networkService.call(endpoint: .comments(id: id))
     }
 }

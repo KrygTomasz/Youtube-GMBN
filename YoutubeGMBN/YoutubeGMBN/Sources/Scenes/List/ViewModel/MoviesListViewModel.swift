@@ -37,7 +37,6 @@ final class MoviesListViewModel {
     init(useCase: MoviesListUseCaseProtocol) {
         self.useCase = useCase
         setupBinding()
-        refresh()
     }
     
     func refresh() {

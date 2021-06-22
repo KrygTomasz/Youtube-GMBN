@@ -46,6 +46,7 @@ final class MoviesListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        viewModel.refresh()
         title = "movies_list_title".localized
     }
     

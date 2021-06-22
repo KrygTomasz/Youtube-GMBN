@@ -10,6 +10,7 @@ import GMBNNetworking
 enum MoviesEndpoint {
     case allMovies
     case movieDetails(id: String)
+    case comments(id: String)
 }
 
 extension MoviesEndpoint: HTTPEndpoint {
@@ -19,6 +20,8 @@ extension MoviesEndpoint: HTTPEndpoint {
             return "search"
         case .movieDetails:
             return "videos"
+        case .comments:
+            return "commentThreads"
         }
     }
     
@@ -38,6 +41,13 @@ extension MoviesEndpoint: HTTPEndpoint {
             return .init()
                 .add(key: "id", value: id)
                 .add(key: "part", value: "snippet, contentDetails")
+        case .comments(let id):
+            return .init()
+                .add(key: "videoId", value: id)
+                .add(key: "part", value: "snippet")
+                .add(key: "textFormat", value: "plainText")
+                .add(key: "maxResults", value: "100")
+                .add(key: "order", value: "date")
         }
     }
     
@@ -45,7 +55,7 @@ extension MoviesEndpoint: HTTPEndpoint {
     
     var httpMethod: HTTPMethod {
         switch self {
-        case .allMovies, .movieDetails:
+        case .allMovies, .movieDetails, .comments:
             return .get
         }
     }
